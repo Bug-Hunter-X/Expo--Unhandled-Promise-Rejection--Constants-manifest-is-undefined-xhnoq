@@ -1,0 +1,4 @@
+This error typically occurs when using Expo's `Constants.manifest` or similar APIs to access the app's manifest details within a native module.  The issue stems from accessing the manifest before it's fully initialized or available within the native environment.  This is common when the module is loaded early in the app's lifecycle, like during the app's initial setup.
+
+**Example Scenario:**
+Imagine a native module that reads the bundle identifier (`Constants.manifest.bundleIdentifier`) during its initialization. If this module gets loaded before the Expo runtime fully initializes, `Constants.manifest` will be undefined or incomplete leading to a runtime error. 
